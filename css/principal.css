@@ -1,0 +1,293 @@
+:root{
+  --bg: #000000;
+  --panel-2: #111111;
+  --border: #1e1e1e;
+  --text: #f5f5f5;
+  --muted: #8a8a8e;
+  --orange: #ff5500;
+  --orange-dark: #cc4400;
+}
+*{box-sizing:border-box;}
+html, body{ height:100%; margin:0; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Archivo', sans-serif;
+  overflow: hidden;
+}
+h1,h2,h3,h4,h5{ font-family: 'Archivo Black', sans-serif; }
+
+/* ================= CONTAINER ================= */
+.app-container{
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+/* inputs invisíveis que controlam tudo via CSS */
+.nav-radio, .filter-radio, .like-checkbox, .user-menu-toggle{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0; height: 0;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  width: 280px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.sidebar .fs-4{ font-family: 'Archivo Black', sans-serif; letter-spacing: .5px; }
+.sidebar hr{ border-color: var(--border); opacity: 1; }
+
+.nav-pills .nav-link{
+  display:flex;
+  align-items:center;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .93rem;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+.nav-pills .nav-link:hover{
+  background: var(--panel-2);
+}
+.nav-badge{
+  margin-left:auto;
+  background: var(--orange);
+  color:#fff;
+  font-size: .68rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 20px;
+}
+
+/* liga o item ativo da sidebar ao radio correspondente */
+#nav-home:checked ~ .sidebar label[for="nav-home"],
+#nav-dashboard:checked ~ .sidebar label[for="nav-dashboard"],
+#nav-orders:checked ~ .sidebar label[for="nav-orders"],
+#nav-products:checked ~ .sidebar label[for="nav-products"],
+#nav-customers:checked ~ .sidebar label[for="nav-customers"]{
+  background: var(--orange) !important;
+  color: #fff !important;
+}
+#nav-home:checked ~ .sidebar label[for="nav-home"] .nav-badge,
+#nav-dashboard:checked ~ .sidebar label[for="nav-dashboard"] .nav-badge,
+#nav-orders:checked ~ .sidebar label[for="nav-orders"] .nav-badge,
+#nav-products:checked ~ .sidebar label[for="nav-products"] .nav-badge,
+#nav-customers:checked ~ .sidebar label[for="nav-customers"] .nav-badge{
+  background: rgba(255,255,255,.25);
+}
+
+.btn-create{
+  background: var(--orange);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: .88rem;
+  padding: 11px;
+  border-radius: 10px;
+  width: 100%;
+}
+.btn-create:hover{ background: var(--orange-dark); color:#fff; }
+
+/* menu do usuário (dropdown 100% CSS) */
+.user-menu{ position: relative; }
+.user-menu-label{
+  display:flex; align-items:center; color:#fff; text-decoration:none; cursor:pointer;
+}
+.dropdown-menu-custom{
+  display:none;
+  position:absolute;
+  bottom: 46px;
+  left: 0;
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  list-style:none;
+  margin:0;
+}
+.user-menu-toggle:checked ~ .dropdown-menu-custom{ display:block; }
+.dropdown-menu-custom li a{
+  display:block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration:none;
+  font-size: .85rem;
+}
+.dropdown-menu-custom li a:hover{ background: #1a1a1a; }
+.dropdown-divider{ border-color: var(--border); margin: 6px 0; }
+
+/* ================= MAIN / SECTIONS ================= */
+.main-content{
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+.app-section{ display:none; }
+
+#nav-home:checked ~ .main-content #section-home,
+#nav-dashboard:checked ~ .main-content #section-dashboard,
+#nav-orders:checked ~ .main-content #section-orders,
+#nav-products:checked ~ .main-content #section-products,
+#nav-customers:checked ~ .main-content #section-customers{
+  display: block;
+}
+
+.section-header{
+  padding: 22px 32px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header h5{ margin:0; font-size: 1.1rem; }
+.section-header p{ margin: 2px 0 0; color: var(--muted); font-size: .82rem; }
+
+/* ---- Feed ---- */
+.filter-pills{
+  display:flex;
+  gap:8px;
+  padding: 14px 32px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.pill{
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: .82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor:pointer;
+  background: transparent;
+}
+#filter-all:checked ~ .filter-pills label[for="filter-all"],
+#filter-futebol:checked ~ .filter-pills label[for="filter-futebol"],
+#filter-basquete:checked ~ .filter-pills label[for="filter-basquete"],
+#filter-skate:checked ~ .filter-pills label[for="filter-skate"],
+#filter-volei:checked ~ .filter-pills label[for="filter-volei"],
+#filter-tenis:checked ~ .filter-pills label[for="filter-tenis"]{
+  background: var(--orange); border-color: var(--orange); color:#fff;
+}
+
+.feed-wrap{
+  padding: 20px 32px 60px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.post-card{
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 620px;
+}
+.post-head{ display:flex; align-items:center; gap:12px; padding:14px 16px; }
+.avatar{
+  width:42px; height:42px; border-radius:50%;
+  background: linear-gradient(135deg, var(--orange), #ff8a3d);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.85rem; color:#fff; flex-shrink:0;
+}
+.post-user{ line-height:1.25; }
+.post-user .name{ font-weight:700; font-size:.92rem; }
+.post-user .meta{ color:var(--muted); font-size:.76rem; }
+.sport-tag{
+  font-size:.68rem; font-weight:700; padding:2px 9px; border-radius:20px;
+  background: rgba(255,85,0,.15); color: var(--orange); margin-left:6px; vertical-align:1px;
+}
+.post-follow{
+  margin-left:auto; font-size:.78rem; font-weight:700; padding:5px 14px;
+  border-radius:8px; border:1px solid var(--border); color:var(--text); background:transparent; flex-shrink:0;
+}
+.post-caption{ padding: 0 16px 12px; font-size:.88rem; color:#d8d7d4; }
+.post-photo{
+  width:100%; aspect-ratio: 4/3;
+  background: repeating-linear-gradient(135deg, #1f1f22, #1f1f22 12px, #232326 12px, #232326 24px);
+  display:flex; align-items:center; justify-content:center; color:#55555a;
+  font-size:.8rem; font-weight:600; text-align:center; gap:8px; flex-direction:column;
+}
+.post-photo i{ font-size:1.6rem; opacity:.6; }
+.post-actions{ display:flex; align-items:center; gap:20px; padding:12px 16px; }
+.action-btn{
+  display:flex; align-items:center; gap:7px; color:var(--muted); font-size:.85rem;
+  font-weight:600; background:none; border:none; cursor:pointer; padding:0;
+}
+.action-btn i{ font-size:1.05rem; }
+.action-btn:hover{ color: var(--text); }
+
+/* curtidas 100% CSS: cada post tem um checkbox oculto + label logo em seguida */
+.icon-liked, .count-liked{ display:none; }
+.icon-unliked, .count-unliked{ display:inline-flex; align-items:center; gap:7px; }
+.like-checkbox:checked + .like-label{ color: var(--orange); }
+.like-checkbox:checked + .like-label .icon-liked,
+.like-checkbox:checked + .like-label .count-liked{ display:inline-flex; align-items:center; gap:7px; }
+.like-checkbox:checked + .like-label .icon-unliked,
+.like-checkbox:checked + .like-label .count-unliked{ display:none; }
+
+.post-likes{ padding:0 16px 14px; font-size:.82rem; color:var(--muted); }
+.post-likes strong{ color: var(--text); }
+
+/* ---- Mapa ---- */
+.stat-card{
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.stat-card .label{ color: var(--muted); font-size:.78rem; font-weight:600; }
+.stat-card .value{ font-size: 1.6rem; font-weight: 800; margin-top:4px; }
+.stat-card .delta{ font-size:.76rem; color:#3ecf71; margin-top:2px; }
+
+/* ---- Sessões (tabela) ---- */
+.table-dark-custom{ --bs-table-bg: var(--panel-2); --bs-table-color: var(--text); }
+.table-dark-custom thead{ color: var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.03em; }
+.table-dark-custom td, .table-dark-custom th{ border-color: var(--border); vertical-align: middle; }
+.status-badge{ font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:20px; }
+.status-confirmado{ background: rgba(62,207,113,.15); color:#3ecf71; }
+.status-pendente{ background: rgba(255,85,0,.15); color: var(--orange); }
+.status-cancelado{ background: rgba(255,80,80,.15); color:#ff5050; }
+
+/* ---- Marketplace (grid) ---- */
+.product-card{
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.product-photo{
+  aspect-ratio: 1/1;
+  background: repeating-linear-gradient(135deg, #1f1f22, #1f1f22 12px, #232326 12px, #232326 24px);
+  display:flex; align-items:center; justify-content:center; color:#55555a; font-size:.75rem; font-weight:600;
+}
+.product-info{ padding: 12px 14px; }
+.product-info .name{ font-weight:700; font-size:.9rem; }
+.product-info .price{ color: var(--orange); font-weight:800; margin-top:2px; }
+
+/* ---- Comunidade (lista) ---- */
+.customer-row{
+  display:flex; align-items:center; gap:14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.customer-row:last-child{ border-bottom:none; }
+.customer-row .name{ font-weight:700; font-size:.92rem; }
+.customer-row .meta{ color: var(--muted); font-size:.78rem; }
+.customer-row .sport-badge{
+  font-size:.7rem; font-weight:700; padding:3px 10px; border-radius:20px;
+  background: rgba(255,85,0,.15); color: var(--orange); margin-left:auto;
+}
+
+@media (max-width: 860px){
+  .sidebar{ display:none; }
+}

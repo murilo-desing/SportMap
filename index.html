@@ -1,30 +1,389 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sport Map</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SportMap</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/principal.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- ===== radios ocultos que controlam a navegação (sem JS) ===== -->
+      <input type="radio" name="nav" id="nav-home" class="nav-radio" checked />
+      <input type="radio" name="nav" id="nav-dashboard" class="nav-radio" />
+      <input type="radio" name="nav" id="nav-orders" class="nav-radio" />
+      <input type="radio" name="nav" id="nav-products" class="nav-radio" />
+      <input type="radio" name="nav" id="nav-customers" class="nav-radio" />
 
-<body>
-     <!--Comentando para conseguir fazer commit -->
+      
+      <!-- ============ SIDEBAR ============ -->
+      <div
+        class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <div
+            style="
+              width: 34px;
+              height: 34px;
+              background: var(--orange);
+              border-radius: 9px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-right: 10px;
+            "
+          >
+            <i class="bi bi-diagram-3-fill text-white"></i>
+          </div>
+          <span class="fs-4">SportMap</span>
+        </a>
+        <hr />
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <label for="nav-home" class="nav-link">
+              <i class="bi bi-house-door me-2"></i>
+              Feed
+            </label>
+          </li>
+          <li>
+            <label for="nav-dashboard" class="nav-link">
+              <i class="bi bi-speedometer2 me-2"></i>
+              Mapa
+            </label>
+          </li>
+          <li>
+            <label for="nav-orders" class="nav-link">
+              <i class="bi bi-calendar-check me-2"></i>
+              Sessões
+             
+            </label>
+          </li>
+          <li>
+            <label for="nav-products" class="nav-link">
+              <i class="bi bi-grid me-2"></i>
+              Marketplace
+            </label>
+          </li>
+          <li>
+            <label for="nav-customers" class="nav-link">
+              <i class="bi bi-people-fill me-2"></i>
+              Comunidade
+            </label>
+          </li>
+        </ul>
+        <hr />
+        <button class="btn-create mb-3">
+          <i class="bi bi-plus-lg me-1"></i> Criar sessão
+        </button>
 
 
 
+      <!-- ============ MAIN CONTENT ============ -->
+      <main class="main-content">
+        <!-- ===================== SEÇÃO: FEED ===================== -->
+        <section class="app-section" id="section-home">
+          <div class="feed-wrap">
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">RM</div>
+                <div class="post-user">
+                  <div class="name">
+                    Rafael Mendes <span class="sport-tag">Skate</span>
+                  </div>
+                  <div class="meta">@rafamendes · há 12 min</div>
+                </div>
+                <button class="post-follow">Seguir</button>
+              </div>
+              <div class="post-caption">
+                Fechamos a pista hoje cedo, ninguém segurou esse ollie 🛹
+              </div>
+              <!-- FOTO AQUI -->
+              <div class="post-photo">
+                <i class="bi bi-image"></i>espaço para foto
+              </div>
+              <div class="post-actions">
+                <input
+                  type="checkbox"
+                  id="like1"
+                  class="like-checkbox"
+                  checked
+                />
+                <label for="like1" class="action-btn like-label">
+                  <span class="icon-liked"
+                    ><i class="bi bi-heart-fill"></i
+                  ></span>
+                  <span class="icon-unliked"><i class="bi bi-heart"></i></span>
+                  <span class="count-liked">128</span>
+                  <span class="count-unliked">127</span>
+                </label>
+                <button class="action-btn">
+                  <i class="bi bi-chat"></i> 14
+                </button>
+                <button class="action-btn">
+                  <i class="bi bi-share"></i> Compartilhar
+                </button>
+              </div>
+              <div class="post-likes">
+                Curtido por <strong>Vinícius R.</strong> e mais
+                <strong>127 pessoas</strong>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">JA</div>
+                <div class="post-user">
+                  <div class="name">
+                    Julia Alves <span class="sport-tag">Vôlei</span>
+                  </div>
+                  <div class="meta">@ju.alves · há 40 min</div>
+                </div>
+                <button class="post-follow">Seguir</button>
+              </div>
+              <div class="post-caption">
+                Treino de sábado na quadra da Vila. Time completo pra domingo!
+                🏐
+              </div>
+              <!-- FOTO AQUI -->
+              <div class="post-photo">
+                <i class="bi bi-image"></i>espaço para foto
+              </div>
+              <div class="post-actions">
+                <input type="checkbox" id="like2" class="like-checkbox" />
+                <label for="like2" class="action-btn like-label">
+                  <span class="icon-liked"
+                    ><i class="bi bi-heart-fill"></i
+                  ></span>
+                  <span class="icon-unliked"><i class="bi bi-heart"></i></span>
+                  <span class="count-liked">77</span>
+                  <span class="count-unliked">76</span>
+                </label>
+                <button class="action-btn"><i class="bi bi-chat"></i> 5</button>
+                <button class="action-btn">
+                  <i class="bi bi-share"></i> Compartilhar
+                </button>
+              </div>
+              <div class="post-likes">
+                Curtido por <strong>76 pessoas</strong>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">BZ</div>
+                <div class="post-user">
+                  <div class="name">
+                    Bruno Zago <span class="sport-tag">Futebol</span>
+                  </div>
+                  <div class="meta">@brunozago · há 1 h</div>
+                </div>
+                <button class="post-follow">Seguir</button>
+              </div>
+              <div class="post-caption">
+                Gol de bicicleta na pelada de hoje, quem viu sabe 🔥⚽
+              </div>
+              <!-- FOTO AQUI -->
+              <div class="post-photo">
+                <i class="bi bi-image"></i>espaço para foto
+              </div>
+              <div class="post-actions">
+                <input
+                  type="checkbox"
+                  id="like3"
+                  class="like-checkbox"
+                  checked
+                />
+                <label for="like3" class="action-btn like-label">
+                  <span class="icon-liked"
+                    ><i class="bi bi-heart-fill"></i
+                  ></span>
+                  <span class="icon-unliked"><i class="bi bi-heart"></i></span>
+                  <span class="count-liked">342</span>
+                  <span class="count-unliked">341</span>
+                </label>
+                <button class="action-btn">
+                  <i class="bi bi-chat"></i> 48
+                </button>
+                <button class="action-btn">
+                  <i class="bi bi-share"></i> Compartilhar
+                </button>
+              </div>
+              <div class="post-likes">
+                Curtido por <strong>Rafael M.</strong> e mais
+                <strong>341 pessoas</strong>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">CS</div>
+                <div class="post-user">
+                  <div class="name">
+                    Carla Souza <span class="sport-tag">Tênis</span>
+                  </div>
+                  <div class="meta">@carlas · há 2 h</div>
+                </div>
+                <button class="post-follow">Seguir</button>
+              </div>
+              <div class="post-caption">
+                Primeira aula na quadra nova, saudade de jogar em saibro 🎾
+              </div>
+              <!-- FOTO AQUI -->
+              <div class="post-photo">
+                <i class="bi bi-image"></i>espaço para foto
+              </div>
+              <div class="post-actions">
+                <input type="checkbox" id="like4" class="like-checkbox" />
+                <label for="like4" class="action-btn like-label">
+                  <span class="icon-liked"
+                    ><i class="bi bi-heart-fill"></i
+                  ></span>
+                  <span class="icon-unliked"><i class="bi bi-heart"></i></span>
+                  <span class="count-liked">60</span>
+                  <span class="count-unliked">59</span>
+                </label>
+                <button class="action-btn"><i class="bi bi-chat"></i> 3</button>
+                <button class="action-btn">
+                  <i class="bi bi-share"></i> Compartilhar
+                </button>
+              </div>
+              <div class="post-likes">
+                Curtido por <strong>59 pessoas</strong>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">VR</div>
+                <div class="post-user">
+                  <div class="name">
+                    Vinícius Rocha <span class="sport-tag">Basquete</span>
+                  </div>
+                  <div class="meta">@viniciusr · há 3 h</div>
+                </div>
+                <button class="post-follow">Seguir</button>
+              </div>
+              <div class="post-caption">
+                Fechamos com 5x5 até escurecer na quadra do Ibirapuera 🏀
+              </div>
+              <!-- FOTO AQUI -->
+              <div class="post-photo">
+                <i class="bi bi-image"></i>espaço para foto
+              </div>
+              <div class="post-actions">
+                <input
+                  type="checkbox"
+                  id="like5"
+                  class="like-checkbox"
+                  checked
+                />
+                <label for="like5" class="action-btn like-label">
+                  <span class="icon-liked"
+                    ><i class="bi bi-heart-fill"></i
+                  ></span>
+                  <span class="icon-unliked"><i class="bi bi-heart"></i></span>
+                  <span class="count-liked">213</span>
+                  <span class="count-unliked">212</span>
+                </label>
+                <button class="action-btn">
+                  <i class="bi bi-chat"></i> 22
+                </button>
+                <button class="action-btn">
+                  <i class="bi bi-share"></i> Compartilhar
+                </button>
+              </div>
+              <div class="post-likes">
+                Curtido por <strong>Julia A.</strong> e mais
+                <strong>212 pessoas</strong>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">TL</div>
+                <div class="post-user">
+                  <div class="name">
+                    Thiago Lima <span class="sport-tag">Futebol</span>
+                  </div>
+                  <div class="meta">@thiagol · há 4 h</div>
+                </div>
+                <button class="post-follow">Seguir</button>
+              </div>
+              <div class="post-caption">
+                Time montado pro racha de quinta, só falta você 👀⚽
+              </div>
+              <!-- FOTO AQUI -->
+              <div class="post-photo">
+                <i class="bi bi-image"></i>espaço para foto
+              </div>
+              <div class="post-actions">
+                <input type="checkbox" id="like6" class="like-checkbox" />
+                <label for="like6" class="action-btn like-label">
+                  <span class="icon-liked"
+                    ><i class="bi bi-heart-fill"></i
+                  ></span>
+                  <span class="icon-unliked"><i class="bi bi-heart"></i></span>
+                  <span class="count-liked">46</span>
+                  <span class="count-unliked">45</span>
+                </label>
+                <button class="action-btn"><i class="bi bi-chat"></i> 9</button>
+                <button class="action-btn">
+                  <i class="bi bi-share"></i> Compartilhar
+                </button>
+              </div>
+              <div class="post-likes">
+                Curtido por <strong>45 pessoas</strong>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ===================== SEÇÃO: MAPA ===================== -->
+        <section class="app-section" id="section-dashboard">
+          
 
 
 
+        </section>
+
+        <!-- ===================== SEÇÃO: SESSÕES ===================== -->
+        <section class="app-section" id="section-orders">
+        
 
 
+        </section>
 
+        <!-- ===================== SEÇÃO: MARKETPLACE ===================== -->
+        <section class="app-section" id="section-products">
+         
+        </section>
 
+        <!-- ===================== SEÇÃO: COMUNIDADE ===================== -->
+        <section class="app-section" id="section-customers">
+         
+        </section>
+      </main>
+    </div>
 
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
