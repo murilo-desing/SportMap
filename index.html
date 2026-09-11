@@ -15,8 +15,12 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Archivo+Black&display=swap"
       rel="stylesheet"
+
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/principal.css" />
+    <link rel="stylesheet" href="css/feed.css" />
+
   </head>
   <body>
     <div class="app-container">
@@ -92,36 +96,49 @@
         </button>
 
         <!-- menu do usuário, 100% CSS -->
-        <div class="user-menu">
-          <input
-            type="checkbox"
-            id="user-menu-toggle"
-            class="user-menu-toggle"
-          />
-          <label for="user-menu-toggle" class="user-menu-label">
-            <img
-              src="https://github.com/mdo.png"
-              alt=""
-              width="32"
-              height="32"
-              class="rounded-circle me-2"
-            />
-            <strong>Vinícius R.</strong>
-          </label>
-          <ul class="dropdown-menu-custom">
-            <li><a href="#">Nova sessão...</a></li>
-            <li><a href="#">Configurações</a></li>
-            <li><a href="#">Perfil</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a href="#">Sair</a></li>
-          </ul>
-        </div>
+       
       </div>
 
       <!-- ============ MAIN CONTENT ============ -->
       <main class="main-content">
         <!-- ===================== SEÇÃO: FEED ===================== -->
-        <section class="app-section" id="section-home">
+         <!-- murilo-->
+       <nav class="navbar navbar-dark bg-dark">
+  <div class="navbar-spacer"></div>
+
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Busque locais, pessoas, esportes..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+  </form>
+
+  <div class="user-menu">
+    <input
+      type="checkbox"
+      id="user-menu-toggle"
+      class="user-menu-toggle"
+    />
+    <label for="user-menu-toggle" class="user-menu-label">
+      <strong>João Vitor Pereira</strong>
+      <img
+        src="https://github.com/mdo.png"
+        alt=""
+        width="32"
+        height="32"
+        class="rounded-circle"
+      />
+    </label>
+  </div>
+</nav>
+          <!-- BANNER DO FEED -->
+          <div class="feed-hero">
+          <!-- FOTO AQUI -->
+            <div class="feed-hero-photo">
+              <img src="img/fundo.png" class="feed-hero-photo-img">
+            
+            </div>
+            <!-- BARRA DE PESQUISA -->
+           
+            
           <div class="feed-wrap">
             <article class="post-card">
               <div class="post-head">
