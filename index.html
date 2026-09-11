@@ -1,44 +1,31 @@
 <!doctype html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>SportMap</title>
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
-    rel="stylesheet" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Archivo+Black&display=swap"
-    rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/principal.css" />
-  <link rel="stylesheet" href="css/mapa.css" />
-  <link rel="stylesheet" href="css/mk.css" />
-  <link rel="stylesheet" href="css/comunidade.css" />
-
-</head>
-
-<body>
-
-  <div class="app-container">
-
-    <!-- ================================================= -->
-    <!-- RADIOS QUE CONTROLAM A NAVEGAÇÃO - SEM JAVASCRIPT -->
-    <!-- ================================================= -->
-
-    <input type="radio" name="nav" id="nav-home" class="nav-radio" checked />
-
-    <input type="radio" name="nav" id="nav-dashboard" class="nav-radio" />
-
-    <input type="radio" name="nav" id="nav-orders" class="nav-radio" />
-
-    <input type="radio" name="nav" id="nav-products" class="nav-radio" />
-
-    <input type="radio" name="nav" id="nav-customers" class="nav-radio" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SportMap</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Archivo+Black&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/principal.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- ===== radios ocultos que controlam a navegação (sem JS) ===== -->
+      <input type="radio" name="nav" id="nav-home" class="nav-radio" checked />
+      <input type="radio" name="nav" id="nav-dashboard" class="nav-radio" />
+      <input type="radio" name="nav" id="nav-orders" class="nav-radio" />
+      <input type="radio" name="nav" id="nav-products" class="nav-radio" />
+      <input type="radio" name="nav" id="nav-customers" class="nav-radio" />
 
 
     <!-- ================================================= -->
@@ -166,53 +153,46 @@
 
       </button>
 
+        <!-- menu do usuário, 100% CSS -->
+        <div class="user-menu">
+          <input
+            type="checkbox"
+            id="user-menu-toggle"
+            class="user-menu-toggle"
+          />
+          <label for="user-menu-toggle" class="user-menu-label">
+            <img
+              src="https://github.com/mdo.png"
+              alt=""
+              width="32"
+              height="32"
+              class="rounded-circle me-2"
+            />
+            <strong>Vinícius R.</strong>
+          </label>
+          <ul class="dropdown-menu-custom">
+            <li><a href="#">Nova sessão...</a></li>
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a href="#">Sair</a></li>
+          </ul>
+        </div>
+      </div>
 
-    </div>
-    <!-- ================================================= -->
-    <!-- FIM DA SIDEBAR -->
-    <!-- ================================================= -->
-
-
-    <!-- ================================================= -->
-    <!-- MAIN CONTENT -->
-    <!-- ================================================= -->
-
-    <main class="main-content">
-
-
-      <!-- ================================================= -->
-      <!-- SEÇÃO: FEED -->
-      <!-- ================================================= -->
-
-      <section class="app-section" id="section-home">
-
-        <div class="feed-wrap">
-
-
-          <!-- POST 1 -->
-
-          <article class="post-card">
-
-            <div class="post-head">
-
-              <div class="avatar">
-                RM
-              </div>
-
-              <div class="post-user">
-
-                <div class="name">
-
-                  Rafael Mendes
-
-                  <span class="sport-tag">
-                    Skate
-                  </span>
-
-                </div>
-
-                <div class="meta">
-                  @rafamendes · há 12 min
+      <!-- ============ MAIN CONTENT ============ -->
+      <main class="main-content">
+        <!-- ===================== SEÇÃO: FEED ===================== -->
+        <section class="app-section" id="section-home">
+          <div class="feed-wrap">
+            <article class="post-card">
+              <div class="post-head">
+                <div class="avatar">RM</div>
+                <div class="post-user">
+                  <div class="name">
+                    Rafael Mendes <span class="sport-tag">Skate</span>
+                  </div>
+                  <div class="meta">@rafamendes · há 12 min</div>
                 </div>
 
               </div>
